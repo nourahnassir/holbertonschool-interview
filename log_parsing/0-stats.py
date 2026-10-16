@@ -29,16 +29,18 @@ def print_stats():
 
 
 if __name__ == "__main__":
+    has_input = False
     try:
         for line in sys.stdin:
+            has_input = True
             line_count += 1
             parts = line.split()
-            
+
             try:
                 if len(parts) >= 2:
                     file_size = int(parts[-1])
                     total_size += file_size
-                    
+
                     status_code = parts[-2]
                     if status_code in status_codes:
                         status_codes[status_code] += 1
@@ -53,5 +55,5 @@ if __name__ == "__main__":
         print_stats()
         raise
 
-    if line_count > 0:
+    if line_count > 0 or not has_input:
         print_stats()
