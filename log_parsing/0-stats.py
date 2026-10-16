@@ -54,9 +54,3 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print_statistics(total_size, status_codes)
         raise
-
-    # Print final statistics if loop ends without a multiple of 10 and no KeyboardInterrupt
-    if line_count > 0 and line_count < 10:
-        # Note: Holberton's standard test usually prints on 10 lines or KeyboardInterrupt.
-        # But keeping it clean per specifications.
-        pass
