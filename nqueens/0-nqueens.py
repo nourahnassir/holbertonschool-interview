@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-A program that solves the N queens problem using backtracking.
+N Queens problem solver using backtracking.
 """
 
 import sys
 
 
 def solve_nqueens():
-    """Validates arguments and runs the N-Queens solver."""
+    """Validates input arguments and solves the N-Queens puzzle."""
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
@@ -26,7 +26,7 @@ def solve_nqueens():
     board = [-1] * n
 
     def is_safe(row, col):
-        """Check if a queen can be placed at (row, col)."""
+        """Check if a queen can be placed at board[row] = col."""
         for r in range(row):
             c = board[r]
             if c == col or abs(c - col) == abs(r - row):
@@ -34,7 +34,7 @@ def solve_nqueens():
         return True
 
     def backtrack(row):
-        """Backtracking helper function to find all solutions."""
+        """Finds all solutions recursively via backtracking."""
         if row == n:
             solutions.append([[i, board[i]] for i in range(n)])
             return
